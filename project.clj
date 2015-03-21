@@ -1,6 +1,6 @@
 (defproject noppapeli "0.1.0-SNAPSHOT"
 
-  :description "FIXME: write description"
+  :description "Remake of legendary The Ultimate Noppapeli"
   :url "http://example.com/FIXME"
 
   :dependencies [[org.clojure/clojure "1.6.0"]
