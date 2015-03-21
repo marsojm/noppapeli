@@ -1,14 +1,16 @@
 {% extends "base.html" %}
 {% block content %}
-  <div class="jumbotron">
-    <h1>Welcome to noppapeli</h1>
-    <p>Time to start building your site!</p>
-    <p><a class="btn btn-primary btn-lg" href="http://luminusweb.net">Learn more &raquo;</a></p>
-  </div>
+  <div class="container">
 
   <div class="row">
-    <div class="span12">
-    {{docs|markdown}}
-    </div>
+       <div class="col-lg-12 text-center">
+             <h1>The Ultimate Noppapeli</h1>
+       </div>
+       <div id="content"></div>
   </div>
+  </div>
+  <script src="js/react/react.js"></script>
+  <script src="js/react/JSXTransformer.js"></script>
+  <script type="text/jsx" src="js/app.js"></script>
+
 {% endblock %}
