@@ -1,7 +1,8 @@
 (ns noppapeli.routes.home
   (:require [noppapeli.layout :as layout]
             [compojure.core :refer [defroutes GET]]
-            [clojure.java.io :as io]))
+            [clojure.java.io :as io]
+            [noppapeli.db.core :as db]))
 
 (defn home-page []
   (layout/render
@@ -12,4 +13,5 @@
 
 (defroutes home-routes
   (GET "/" [] (home-page))
-  (GET "/about" [] (about-page)))
+  (GET "/about" [] (about-page))
+  (GET "/highscores" [] {:body (db/get-highscores)}))
