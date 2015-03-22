@@ -14,3 +14,8 @@ WHERE id = :id
 -- retrieve a used given the id.
 SELECT * FROM users
 WHERE id = :id
+
+-- name: get-highscores
+-- retrieves top ten player with scores
+SELECT * FROM highscores
+LIMIT 10;
