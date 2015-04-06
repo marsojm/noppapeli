@@ -80,29 +80,6 @@
 		    	},
 		    });
 
-        var GameOver = React.createClass({
-          render: function() {
-            return <div id="gameOver" className={"modal fade"}>
-              <div className={"modal-dialog"}>
-                <div className={"modal-content"}>
-                  <div className={"modal-header"}>
-                    <button type="button" className={"close"} data-dismiss="modal" aria-hidden="true">&times;</button>
-                    <h2 className={"modal-title"}>Game Over!</h2>
-                        </div>
-                    <div className={"modal-body"}>
-                            <p>Press 'Play' to play again.</p>
-                        </div>
-                            <div className={"modal-footer"}>
-                              <button type="button" className={"btn btn-primary"} onClick={this.reset}>Play</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-          },
-
-        });
-
 		    var Game = React.createClass({
 
 		    	getInitialState: function() {
@@ -119,7 +96,23 @@
 		    	render: function() {
 		    		return <div className={"row"}>
 			    				<div className={"col-lg-12"}>
-                    <GameOver score={this.state.score}/>
+                    <div id="gameOver" className={"modal fade"}>
+                      <div className={"modal-dialog"}>
+                        <div className={"modal-content"}>
+                          <div className={"modal-header"}>
+                            <button type="button" className={"close"} data-dismiss="modal" aria-hidden="true">&times;</button>
+                            <h2 className={"modal-title"}>Game Over!</h2>
+                                </div>
+                            <div className={"modal-body"}>
+                                    <p>Congratulation! You got {this.state.score} points!</p>
+                                    <p>Press 'Play' to play again.</p>
+                                </div>
+                                    <div className={"modal-footer"}>
+                                      <button type="button" className={"btn btn-primary"} onClick={this.reset}>Play</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 				    				<DiceList dices={this.state.dices} isSuccess={this.state.success}/>
 				    				<br/>
 				    				<div className={"row text-center"}>
@@ -149,6 +142,7 @@
 		    			bonus: 0,
               lives: 10,
 		    		});
+            $("#gameOver").modal('hide');
           },
 
 		    	roll: function(e) {
@@ -183,7 +177,7 @@
               lives: lives,
 		    		});
 
-            if(this.state.lives < 1) {
+            if(lives < 1) {
                $("#gameOver").modal('show');
             }
 		    	},
