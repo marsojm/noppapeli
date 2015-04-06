@@ -100,7 +100,6 @@
                       <div className={"modal-dialog"}>
                         <div className={"modal-content"}>
                           <div className={"modal-header"}>
-                            <button type="button" className={"close"} data-dismiss="modal" aria-hidden="true">&times;</button>
                             <h2 className={"modal-title"}>Game Over!</h2>
                                 </div>
                             <div className={"modal-body"}>
