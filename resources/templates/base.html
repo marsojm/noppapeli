@@ -45,14 +45,50 @@
             <li {% ifequal page "home.html" %} class="active"{%endifequal%}>
               <a href="{{servlet-context}}/">Home</a>
             </li>
+            <li>
+              <a href="" data-toggle="modal" data-target="#howModal">How to Play</a>
+            </li>
             <li {% ifequal page "about.html" %} class="active"{%endifequal%}>
-              <a href="{{servlet-context}}/about">About</a>
+              <a href="" data-toggle="modal" data-target="#aboutModal">About</a>
             </li>
           </ul>
         </div>
       </div>
     </div>
+    <div id="aboutModal" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h2 class="modal-title">About</h2>
+                </div>
+                <div class="modal-body">
+                    <p>TODO</p>
 
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="howModal" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h2 class="modal-title">How to play</h2>
+                </div>
+                <div class="modal-body">
+                    <p>TODO</p>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="container">
       {% block content %}
       {% endblock %}
