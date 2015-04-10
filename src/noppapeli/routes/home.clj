@@ -14,4 +14,4 @@
 (defroutes home-routes
   (GET "/" [] (home-page))
   (GET "/about" [] (about-page))
-  (GET "/highscores" [] {:body (db/get-highscores)}))
+  (GET "/highscores" [] { :body (into #{} (db/get-highscores)) }))

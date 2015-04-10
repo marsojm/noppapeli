@@ -48,12 +48,31 @@
             <li>
               <a href="" data-toggle="modal" data-target="#howModal">How to Play</a>
             </li>
+            <li>
+              <a href="" data-toggle="modal" data-target="#hsModal" onClick="showHighscores()">Highscores</a>
+            </li>
             <li {% ifequal page "about.html" %} class="active"{%endifequal%}>
               <a href="" data-toggle="modal" data-target="#aboutModal">About</a>
             </li>
           </ul>
         </div>
       </div>
+    </div>
+    <div id="hsModal" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h2 class="modal-title">Highscores</h2>
+                </div>
+                <div class="modal-body" id="hs">
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
     </div>
     <div id="aboutModal" class="modal fade">
         <div class="modal-dialog">
@@ -79,8 +98,8 @@
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                     <h2 class="modal-title">How to play</h2>
                 </div>
-                <div class="modal-body">
-                    <p>TODO</p>
+                <div class="modal-body" id="hs">
+
 
                 </div>
                 <div class="modal-footer">
@@ -89,6 +108,7 @@
             </div>
         </div>
     </div>
+      <div id="hs1"></div>
     <div class="container">
       {% block content %}
       {% endblock %}
@@ -103,6 +123,27 @@
 
     <script type="text/javascript">
       var context = "{{servlet-context}}";
+    </script>
+
+    <script type="text/javascript">
+        var showHighscores = function(e) {
+            $.ajax("/highscores").done(function(data){
+                console.log(data);
+
+                var ol = document.createElement("ol");
+
+                for(var i = 0; i < data.length; i++) {
+                     var li =  document.createElement("li");
+                     li.innerHTML = "Name: "+data[i].name+", Score: "+data[i].score;
+                     ol.appendChild(li);
+                }
+                var hs = document.getElementById("hs");
+                hs.innerHTML = '';
+                hs.appendChild(ol);
+            }).error(function(){
+                console.log("error");
+            });
+        };
     </script>
     {% block page-scripts %}
     {% endblock %}
